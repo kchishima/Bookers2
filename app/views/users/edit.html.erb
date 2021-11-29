@@ -1,3 +1,10 @@
+  <% if @user.errors.any? %>
+  <%= @user.errors.count %>errors prohibited this obj from being saved:
+  <% @user.errors.full_messages.each do |message| %>
+  <%= message %>
+  <% end %>
+  <% end %>
+
 <h2>User info</h2>
 <%= form_with model:@user, local:true do |f| %>
   <label for="inputName">Name</label>
@@ -9,7 +16,7 @@
   <%= f.text_area :introduction,autofocus: true %>
   </div>
   
-  <%= f.submit "変更を保存" %>
+  <%= f.submit "Update User" %>
   
  
 <% end %>
